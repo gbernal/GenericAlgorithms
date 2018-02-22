@@ -235,6 +235,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1512715332 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1734903543758822, guid: 51d6f09c4aada4554a972165211005c2,
+    type: 2}
+  m_PrefabInternal: {fileID: 19006469}
 --- !u!1 &1967055573
 GameObject:
   m_ObjectHideFlags: 0
@@ -308,6 +313,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 2038024841}
+  - component: {fileID: 2038024842}
   m_Layer: 0
   m_Name: PopulationManager
   m_TagString: Untagged
@@ -328,3 +334,16 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2038024842
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2038024840}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cccd9f84ff16c4dd4b0f75525110c37d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  chameleonPrefab: {fileID: 1512715332}
+  populationSize: 10
