@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4479802126979596}
   - component: {fileID: 212141987225444726}
   - component: {fileID: 61318802315776634}
+  - component: {fileID: 114967207489409110}
   m_Layer: 0
   m_Name: Person
   m_TagString: Untagged
@@ -66,6 +67,17 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 4.4, y: 9.48}
   m_EdgeRadius: 0
+--- !u!114 &114967207489409110
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1734903543758822}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5a5ff574a65c794fa909519d90d354b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!212 &212141987225444726
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -75,7 +87,6 @@ SpriteRenderer:
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
-  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -91,7 +102,6 @@ SpriteRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 0
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
