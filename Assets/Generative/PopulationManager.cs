@@ -37,22 +37,13 @@ public class PopulationManager : MonoBehaviour {
 			go.GetComponent<DNA>().r = Random.Range (0.0f, 1.0f);
 			go.GetComponent<DNA>().g = Random.Range (0.0f, 1.0f);
 			go.GetComponent<DNA>().b = Random.Range (0.0f, 1.0f);
+            go.GetComponent<DNA>().s = Random.Range(0.1f, 0.5f);
 
-			population.Add (go);
+            population.Add (go);
 		}
 	}
 	
-	// Update is called once per frame
-	void Update () {
 
-		elapased += Time.deltaTime;
-		if (elapased > trialTime) 
-		
-		{
-			BreedNewPopulation ();
-			elapased = 0;
-		}
-	}
 	GameObject Breed(GameObject parent1, GameObject parent2)
 	{
 		Vector3 pos = new Vector3 (Random.Range (-9, 9), Random.Range (-4.5f, 4.5f), 0);
@@ -66,16 +57,20 @@ public class PopulationManager : MonoBehaviour {
 			offspring.GetComponent<DNA> ().r = Random.Range (0, 10) < 5 ? dna1.r : dna2.r;
 			offspring.GetComponent<DNA> ().g = Random.Range (0, 10) < 5 ? dna1.g : dna2.g;
 			offspring.GetComponent<DNA> ().b = Random.Range (0, 10) < 5 ? dna1.b : dna2.b;
-		} else 
+            offspring.GetComponent<DNA>().s = Random.Range(0, 10) < 5 ? dna1.s : dna2.s;
+
+        }
+        else 
 		{
 			offspring.GetComponent<DNA>().r = Random.Range (0.0f, 1.0f);
 			offspring.GetComponent<DNA>().g = Random.Range (0.0f, 1.0f);
 			offspring.GetComponent<DNA>().b = Random.Range (0.0f, 1.0f);
+            offspring.GetComponent<DNA>().s = Random.Range(0.1f, 0.5f);
 
 
-		}
+        }
 
-		return offspring;
+        return offspring;
 
 	}
 
@@ -85,13 +80,17 @@ public class PopulationManager : MonoBehaviour {
 		List <GameObject> newPopulation = new List<GameObject>();
 
 		//Get rid of unfit individuals 
-		List <GameObject> sortedList = population.OrderBy(o => o.GetComponent<DNA>().timeToDie).ToList();
+		List <GameObject> sortedList = population.OrderByDescending(o => o.GetComponent<DNA>().timeToDie).ToList();
 
 		population.Clear();
+        
 		for ( int i = (int) (sortedList.Count /2.0f) -1; i< sortedList.Count - 1; i++ )
 		{
-			population.Add (Breed(sortedList [i], sortedList [i + 1]));
-			population.Add (Breed (sortedList [i + 1], sortedList [i]));
+            for (int j = (int)(sortedList.Count / 2.0f) + 1; i < sortedList.Count; i++)
+            {
+                population.Add(Breed(sortedList[i], sortedList[j]));
+                population.Add(Breed(sortedList[j], sortedList[i]));
+            }
 
 		}
 		for (int i = 0; i < sortedList.Count; i++) {
@@ -102,5 +101,18 @@ public class PopulationManager : MonoBehaviour {
 		generation++;
 	
 	}
-		
+
+    // Update is called once per frame
+    void Update()
+    {
+
+        elapased += Time.deltaTime;
+        if (elapased > trialTime)
+
+        {
+            BreedNewPopulation();
+            elapased = 0;
+        }
+    }
+
 }
