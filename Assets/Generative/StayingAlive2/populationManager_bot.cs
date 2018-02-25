@@ -72,7 +72,7 @@ public class populationManager_bot : MonoBehaviour {
         //List<GameObject> sortedList = population.OrderBy(o => o.GetComponent<Brain_bot>().timeAlive).ToList();
 
         //Get rid of unfit individuals based how far they have been traveled
-        List<GameObject> sortedList = population.OrderBy(o => o.GetComponent<Brain_bot>().timeWalking).ToList();
+        List<GameObject> sortedList = population.OrderBy(o => o.GetComponent<Brain_bot>().timeWalking*5 + o.GetComponent<Brain_bot>().timeAlive).ToList();
 
         population.Clear();
 

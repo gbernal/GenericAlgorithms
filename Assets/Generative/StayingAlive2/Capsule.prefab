@@ -167,7 +167,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!65 &65543949338527476
 BoxCollider:
@@ -194,8 +194,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DNALength: 2
   timeAlive: 0
+  timeWalking: 0
   dna: {fileID: 0}
   eyes: {fileID: 1950492409514962}
+  ethanPrefab: {fileID: 113348, guid: 54eb5844754051b40a918a84c33b7c1a, type: 2}
 --- !u!136 &136204638625747898
 CapsuleCollider:
   m_ObjectHideFlags: 1
